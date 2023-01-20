@@ -25,16 +25,16 @@ jobs:
         with:
           push: true
           tags: ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
-      # - name: Remove untagged images
-      #   uses: actions/github-script@v6
-      #   with:
-      #     github-token: ${{ secrets.GHCR_DELETE_TOKEN }}
-      #     script: |
-      #       const response = await github.request("GET /user/packages/container/${{ env.IMAGE_NAME }}/versions");
-      #       for(version of response.data) {
-      #           if (version.metadata.container.tags.length == 0) {
-      #               const deleteResponse = await github.request("DELETE /user/packages/container/${{ env.IMAGE_NAME }}/versions/" + version.id, { });
-      #               console.log("[status] " + deleteResponse.status);
-      #               console.log("Deleted version " + version.id);
-      #           }
-      #       }
+      - name: Remove untagged images
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GHCR_DELETE_TOKEN }}
+          script: |
+            const response = await github.request("GET /user/packages/container/${{ env.IMAGE_NAME }}/versions");
+            for(version of response.data) {
+                if (version.metadata.container.tags.length == 0) {
+                    const deleteResponse = await github.request("DELETE /user/packages/container/${{ env.IMAGE_NAME }}/versions/" + version.id, { });
+                    console.log("[status] " + deleteResponse.status);
+                    console.log("Deleted version " + version.id);
+                }
+            }
