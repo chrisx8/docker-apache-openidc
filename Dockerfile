@@ -16,6 +16,7 @@ RUN apt-get update && \
     curl -Ls "https://api.github.com/repos/zmartzone/mod_auth_openidc/releases/tags/$MOD_AUTH_OPENIDC_VERSION" | \
         grep -o -E "https://(.*).bullseye_amd64.deb" | xargs curl -LO && \
     dpkg -i *.deb && \
+    a2enmod auth_openidc && \
     rm -rf *.deb /var/cache/apt /var/lib/apt
 
 COPY apachestart.sh /usr/local/bin
