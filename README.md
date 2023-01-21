@@ -1,6 +1,10 @@
 # docker-apache-openidc
 
-Apache httpd with support for OpenID Connect, powered by [mod-auth-openidc](https://github.com/zmartzone/mod_auth_openidc).
+[![build](https://github.com/chrisx8/docker-apache-openidc/actions/workflows/build.yml/badge.svg)](https://github.com/chrisx8/docker-apache-openidc/actions/workflows/build.yml)
+
+Apache2 container with mod_auth_openidc.
+
+This image simply installs Apache2 from Debian `bullseye`'s main repository and mod_auth_openidc from [official binaries](https://github.com/zmartzone/mod_auth_openidc/releases). Configuration can be done as if this is a "standard" Debian installation.
 
 ## License
 
