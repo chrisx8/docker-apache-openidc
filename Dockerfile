@@ -25,4 +25,7 @@ RUN apt-get update && \
 
 COPY apachestart.sh /usr/local/bin
 
+# https://httpd.apache.org/docs/2.4/stopping.html#gracefulstop
+STOPSIGNAL SIGWINCH
+
 CMD /usr/local/bin/apachestart.sh

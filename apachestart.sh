@@ -8,4 +8,4 @@ echo "ServerName $(hostname)" >> /etc/apache2/apache2.conf
 # Validate config
 apachectl configtest
 # Launch Apache
-apachectl -DFOREGROUND
+exec apachectl -DFOREGROUND
