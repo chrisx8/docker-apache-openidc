@@ -4,7 +4,7 @@
 
 Apache2 container with mod_auth_openidc.
 
-This image simply installs Apache2 from Debian `bullseye`'s main repository and mod_auth_openidc from [official binaries](https://github.com/zmartzone/mod_auth_openidc/releases). Configuration can be done as if this is a "standard" Debian installation.
+This image simply installs Apache2 from Debian `bullseye`'s main repository and mod_auth_openidc from [official binaries](https://github.com/OpenIDC/mod_auth_openidc/releases). Configuration can be done as if this is a "standard" Debian installation.
 
 ## License
 
